@@ -1,6 +1,7 @@
 var dog,sadDog,happyDog;
 var feedButton, addFoodButton;
 var food, foodStock;
+
 function preload(){
   sadDog=loadImage("Images/Dog.png");
   happyDog=loadImage("Images/happy dog.png");
@@ -24,7 +25,9 @@ function setup() {
   addFoodButton.mousePressed(addFoods);
 
   food = new Food();
-
+  database.ref('food').on('value',(data)=>{
+    foodStock=data.val()
+  })
 }
 
 function draw() {
@@ -37,17 +40,19 @@ function draw() {
 function feedDog(){
   dog.addImage(happyDog);
 
-  food.updateFoodStock(food.getFoodStock()-1);
+  food.updateStock(food.getFoodStock()-1);
   database.ref('/').update({
-    Food:food.getFoodStock()
+    food:food.getFoodStock()
   })
 }
 
 //function to add food in stock
 function addFoods(){
-  food++;
+  var foods=food.getFoodStock()
+  console.log(foods)
+  
   database.ref('/').update({
-    Food:food
+    food:foods +1
   });
 
 }

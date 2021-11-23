@@ -7,8 +7,8 @@
     <script src="p5.play.js"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script> <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -31,11 +31,10 @@
 
       
       // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig);
     </script>
 
 
-</script>
 
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <meta charset="utf-8">

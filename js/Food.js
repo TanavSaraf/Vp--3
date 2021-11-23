@@ -2,14 +2,15 @@ class Food{
 
     constructor(){
         this.foodStock=0;
-
         this.image = loadImage("Images/Milk.png");
         
     }
 
    display(){
         var x = 80, y = 100;
-
+        if(foodStock){
+            this.foodStock=foodStock
+        }
         imageMode(CENTER);
         image(this.image,720,220,70,70);
         if(this.foodStock !==0){
